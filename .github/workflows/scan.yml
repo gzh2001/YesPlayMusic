@@ -41,4 +41,4 @@ jobs:
       #       -Dsonar.branch.name=${{ github.GITHUB_REF_NAME }}
 
       - name: Sonar-scanner
-        run: cd YesPlayMusic && sonar-scanner -Dsonar.branch.name=$github.GITHUB_REF_NAME
+        run: sonar-scanner -Dsonar.branch.name=${{ github.GITHUB_REF_NAME }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }}
