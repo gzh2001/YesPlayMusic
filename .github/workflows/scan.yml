@@ -33,9 +33,12 @@ jobs:
         with:
           version: 6.1.0.4477
 
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          args: >
-            -Dsonar.branch.name=${{ github.GITHUB_REF_NAME }}
+      # - uses: sonarsource/sonarqube-scan-action@master
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      #     args: >
+      #       -Dsonar.branch.name=${{ github.GITHUB_REF_NAME }}
+
+      - name: Sonar-scanner
+        run: sonar-scanner -Dsonar.branch.name=${{ github.GITHUB_REF_NAME }}
